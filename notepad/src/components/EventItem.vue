@@ -3,13 +3,13 @@
 		<div class="content">{{content}}</div>
 		<div class="timer">{{timer}}</div>
 		<div class="deal-button">
-			<button v-for="item in buttonType" :class="item.type">{{item.value}}</button>
+			<button v-for="item in buttonType" :class="item.type" @click="eventDeal(item.type)">{{item.value}}</button>
 		</div>
 	</div>
 </template>
 <script>
 	export default {
-		props:['content','timer','type'],
+		props:['content','timer','type','eventID'],
 		computed: {
 			theme(){
 				return this.$store.state.themeColor + '-event-item';
@@ -19,7 +19,7 @@
 				switch (this.type){
 					case 'unfinish':
 						arr = [
-							{type: 'done',value: '完成'},
+							{type: 'finished',value: '完成'},
 							{type: 'cancel',value: '取消'}
 						];
 						break;
@@ -43,6 +43,28 @@
 		data(){
 			return {
 				
+			}
+		},
+		methods:{
+			eventDeal(dealType){
+				this.$store.commit({
+					type: 'dealData',
+					dataType: this.type,
+					dealType: dealType,
+					eventID:this.eventID
+				})
+				let arg = {
+					type: 'dealData',
+					dataType: this.type,
+					dealType: dealType,
+					eventID:this.eventID,
+					timer: this.getNowTime()
+				};
+				console.log(arg);
+			},
+			getNowTime:function(){
+				let now = new Date();
+    		return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
 			}
 		}
 
