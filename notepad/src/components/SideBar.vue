@@ -7,7 +7,7 @@
 		</div>
 		<div class="deal-area">
 			<div class="deal-items" style="padding:5px;">
-				<a href="#" @click="changeRouter('')">
+				<a href="#" @click="changeRouter('EventList')">
 					数据列表
 				</a>	
 			</div>

@@ -51,20 +51,55 @@
 					type: 'dealData',
 					dataType: this.type,
 					dealType: dealType,
-					eventID:this.eventID
-				})
-				let arg = {
-					type: 'dealData',
-					dataType: this.type,
-					dealType: dealType,
 					eventID:this.eventID,
 					timer: this.getNowTime()
-				};
-				console.log(arg);
+				})
+				switch (this.type){
+					case 'unfinish':
+						switch (dealType){
+							case 'finished':
+								this.dataToLocalStorage('unfinishData','finishedData');
+								break;
+							case 'cancel' :
+								this.dataToLocalStorage('unfinishData','cancelData');
+								break;
+							default:
+								break;
+						}
+						break;
+					case 'finished':
+							this.dataToLocalStorage('unfinishData','finishedData');
+						break;
+					case 'cancel':
+						switch (dealType) {
+							case 'reset':
+								this.dataToLocalStorage('unfinishData','cancelData');
+								break;
+							case 'delete':
+								this.dataToLocalStorage('cancelData');
+								break;
+							default:
+								break;
+						}
+						break;
+					default:
+						break;
+				}
 			},
 			getNowTime:function(){
 				let now = new Date();
     		return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+			},
+			dataToLocalStorage(){
+				var arr;
+				for(let i = 0;i< arguments.length;i++){
+					arr = [];
+					for(let j = 0;j<this.$store.state[arguments[i]].length; j++){
+						arr.push(JSON.stringify(this.$store.state[arguments[i]][j]));
+
+					}
+					localStorage[arguments[i]] = JSON.stringify(arr);
+				}
 			}
 		}
 

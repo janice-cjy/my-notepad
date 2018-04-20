@@ -17,6 +17,9 @@ import SideBar from '@/components/SideBar.vue'
 			goLogin(){
 				this.$router.push({path:'/'});
 			}
+		},
+		created(){
+			this.$router.push({path: '/Home/EventLIst'});
 		}
 	}
 </script>

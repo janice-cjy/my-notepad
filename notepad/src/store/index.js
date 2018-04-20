@@ -25,11 +25,12 @@ export default new Vuex.Store({
     						arg.timer = payload.timer;
     						arg.type = payload.dataType;
     						state.unfinishData.push(arg);
+    						/*console.log(state.unfinishData);*/
     						break;
     					case 'finished':{
-    						console.log("zhixing");
     						let arr = [];
     						arr = state.unfinishData.splice(payload.eventID,1);
+    						console.log(arr[0]);
     						arr[0].timer = payload.timer;
     						arr[0].type = 'finished';
     						state.finishedData.push(arr[0]);
@@ -79,9 +80,12 @@ export default new Vuex.Store({
     				break;
     		}
     	},
-    	getNowTime(){
-    		let now = new Date();
-    		return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-    	}
+    	localStorageToData(state,payload){
+            state[payload.dataName] = [];
+            console.log(payload.arr);
+            for(let i=0;i<payload.arr.length;i++){
+                state[payload.dataName][i] = payload.arr[i];
+            }
+        }
     }
 })

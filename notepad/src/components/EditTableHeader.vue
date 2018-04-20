@@ -1,6 +1,6 @@
 <template>
-	<div class="edit-event" style="height:100%;">
-		
+	<div class="edit-table-header">
+		i am edit table header.
 	</div>
 </template>
 <script>
@@ -9,7 +9,5 @@
 	}
 </script>
 <style lang='scss'>
-	.edit-event{
-		height: 100%;
-	}
+	
 </style>
