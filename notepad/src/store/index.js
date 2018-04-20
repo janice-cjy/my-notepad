@@ -9,7 +9,8 @@ export default new Vuex.Store({
     	themeColor:'green',
     	unfinishData:[],
     	finishedData:[],
-    	cancelData:[]
+    	cancelData:[],
+        userName: 'Janice'
     },
     mutations:{
     	changeTheme(state,payload){
@@ -30,7 +31,6 @@ export default new Vuex.Store({
     					case 'finished':{
     						let arr = [];
     						arr = state.unfinishData.splice(payload.eventID,1);
-    						console.log(arr[0]);
     						arr[0].timer = payload.timer;
     						arr[0].type = 'finished';
     						state.finishedData.push(arr[0]);
@@ -82,7 +82,6 @@ export default new Vuex.Store({
     	},
     	localStorageToData(state,payload){
             state[payload.dataName] = [];
-            console.log(payload.arr);
             for(let i=0;i<payload.arr.length;i++){
                 state[payload.dataName][i] = payload.arr[i];
             }
