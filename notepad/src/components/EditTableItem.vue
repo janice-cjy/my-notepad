@@ -1,7 +1,7 @@
 <template>
-	<div class="edit-table-item" :class='[theme]'>
+	<div class="edit-table-item" :class='[theme]' @click="getChooseItem">
 		<div class="edit-table-item-choose">
-			<input type="checkbox" name="">
+			<input type="checkbox" name="" :checked="isChecked">
 		</div>
 		<div class="edit-table-item-content">{{content}}</div>
 		<div class="edit-table-item-time">{{time}}</div>
@@ -10,10 +10,21 @@
 </template>
 <script>
 	export default {
-		props:['content','dataType','time'],
+		props:['content','dataType','time','itemID'],
 		data(){
 			return {
-				theme: this.$store.state.themeColor + '-edit-table-item'
+				theme: this.$store.state.themeColor + '-edit-table-item',
+				isChecked:false
+			}
+		},
+		methods:{
+			getChooseItem(){
+				this.isChecked = !this.isChecked;
+				this.$store.commit({
+					type: 'dealChooseID',
+					dealType: this.isChecked,
+					index: this.itemID
+				})	
 			}
 		}
 	}

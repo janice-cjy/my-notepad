@@ -2,7 +2,7 @@
 	<div class="edit-event" style="height:100%;">
 		<div class="edit-body">
 			<edit-table-header></edit-table-header>
-			<edit-table-item v-for="item in itemList" :content='item.content' :dataType='item.type' :time="item.timer"></edit-table-item>
+			<edit-table-item v-for="(item,index) in itemList" :content='item.content' :dataType='item.type' :time="item.timer" :key="index" :itemID="index"></edit-table-item>
 			<down-data @downing="downData"></down-data>
 		</div>
 		
@@ -33,7 +33,17 @@ import DownData from '@/components/DownData.vue'
 		},
 		methods:{
 			downData(){
-				alert("downing...");
+				let downDate = [];
+				for(let i = 0;i<this.$store.state.chooseID.length;i++){
+					downDate.push(this.itemList[this.$store.state.chooseID[i]]);
+				}
+				let downMessage = JSON.stringify(downDate);
+				console.log(downMessage);
+				this.$http.put('../static/test2.txt',{downMessage}).then(respond => {
+					console.log(respond.body);
+				},respond => {
+					console.log("error");
+				});
 			}
 		}
 	}

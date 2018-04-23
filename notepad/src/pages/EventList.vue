@@ -31,7 +31,7 @@ import EventItem from '@/components/EventItem.vue'
 			getEvent(){
 				let content = arguments[0];
 				let now = new Date();
-				let time = now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate();
+				let time = now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate() + ' ' +this.getDoubleDate(now.getHours()) + ':' + this.getDoubleDate(now.getMinutes()) + ':' + this.getDoubleDate(now.getSeconds());
 				this.$store.commit({
 					type:'dealData',
 					dataType: 'unfinish',
@@ -44,7 +44,6 @@ import EventItem from '@/components/EventItem.vue'
 			},
 			localStorageToData(dataName){
 				let arr;
-				console.log(localStorage[dataName]);
 				for (let j = 0;j<arguments.length;j++){
 					arr = [];
 					if (localStorage[arguments[j]]) {
@@ -69,6 +68,13 @@ import EventItem from '@/components/EventItem.vue'
 				}
 				localStorage[dataName] = JSON.stringify(arr);
 				
+			},
+			getDoubleDate(num){
+				if (num<10){
+					return '0'+num;
+				}else{
+					return num;
+				}
 			}
 		},
 		data(){

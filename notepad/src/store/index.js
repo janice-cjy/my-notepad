@@ -10,7 +10,8 @@ export default new Vuex.Store({
     	unfinishData:[],
     	finishedData:[],
     	cancelData:[],
-        userName: 'Janice'
+        userName: 'Janice',
+        chooseID:[]
     },
     mutations:{
     	changeTheme(state,payload){
@@ -84,6 +85,17 @@ export default new Vuex.Store({
             state[payload.dataName] = [];
             for(let i=0;i<payload.arr.length;i++){
                 state[payload.dataName][i] = payload.arr[i];
+            }
+        },
+        dealChooseID(state,payload){
+            if (!payload.dealType) {
+                for (let i = 0;i<state.chooseID.length;i++) {
+                    if (state.chooseID[i] == payload.index) {
+                        state.chooseID.splice(i,1);
+                    }
+                }
+            }else{
+                state.chooseID.push(payload.index);
             }
         }
     }

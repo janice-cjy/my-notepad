@@ -1,5 +1,5 @@
 <template>
-	<div class="event-item" :class='[theme]'>
+	<div class="event-item" :class='[theme,type]'>
 		<div class="content">{{content}}</div>
 		<div class="timer">{{timer}}</div>
 		<div class="deal-button">
@@ -88,7 +88,7 @@
 			},
 			getNowTime:function(){
 				let now = new Date();
-    		return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    		return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' +this.getDoubleDate(now.getHours()) + ':' + this.getDoubleDate(now.getMinutes()) + ':' + this.getDoubleDate(now.getSeconds());
 			},
 			dataToLocalStorage(){
 				var arr;
@@ -99,6 +99,13 @@
 
 					}
 					localStorage[arguments[i]] = JSON.stringify(arr);
+				}
+			},
+			getDoubleDate(num){
+				if (num <10) {
+					return '0'+num;
+				}else{
+					return num;
 				}
 			}
 		}
@@ -127,6 +134,10 @@
 			width: 100px;
 		}
 
+	}
+
+	.cancel .content{
+		text-decoration: line-through;
 	}
 
 /*	theme style
