@@ -17,8 +17,13 @@
 				</a>	
 			</div>
 			<div class="deal-items">
-				<a href="#">
+				<a href="#" @click="showModel">
 					导入数据
+				</a>	
+			</div>
+			<div class="deal-items">
+				<a href="#" @click="deleteData">
+					删除数据
 				</a>	
 			</div>
 			<div class="deal-items">
@@ -52,6 +57,20 @@ import ThemeChoose from './Theme.vue'
 			},
 			changeRouter(routerName){
 				this.$router.push({path: '/Home/' + routerName});
+			},
+			deleteData(){
+				var del = confirm('是否确定删除所有事件数据');
+				if (del) {
+					this.$store.commit({
+						type: 'deleteData'
+					});
+					localStorage.unfinishData = [];
+					localStorage.finishedData = [];
+					localStorage.cancelData = [];
+				}
+			},
+			showModel(){
+				this.$emit("showModel");
 			}
 		},
 		computed:{

@@ -1,0 +1,69 @@
+<template>
+	<div class="input-data" :class='[theme]'>
+		<div class="input-data-content">
+			<p class="tips">
+			只能导入从本记事本下载的数据文件～
+			</p>
+			<input type="file" accept=".txt" name="" id="file-choose">
+			<button @click="inputData">导入</button>
+			<button @click="closeModel">关闭</button>
+		</div>
+		
+	</div>
+</template>
+<script>
+	export default {
+		data(){
+			return {
+				theme:this.$store.state.themeColor + '-input-data'
+			}
+		},
+		methods:{
+			inputData(){
+				let reader = new FileReader();
+				let file = document.getElementById("file-choose");
+				reader.readAsText(file.files[0]);
+				reader.onload = () => {
+					let arr = JSON.parse(reader.result);
+					this.$store.commit({
+						type:'inputData',
+						data:arr
+					})
+					alert("导入数据成功");
+				}
+				
+			},
+			closeModel(){
+				this.$emit("closeModel");
+			}
+		}
+	}
+</script>
+<style lang='scss'>
+	.input-data{
+		position: fixed;
+		background-color: rgba(0,0,0,0.4);
+		width: 100%;
+		height: 100%;
+		.input-data-content{
+			width: 400px;
+			margin: 200px auto;
+			border:1px solid #000;
+			padding: 15px;
+			border-radius: 5px;
+			.tips{
+				padding: 5px;
+			}
+		}
+	}
+
+/*	theme style
+*/
+	.green-input-data{
+		.input-data-content{
+			background-color: rgba(15, 189, 44,1);
+		}
+	}
+
+	
+</style>

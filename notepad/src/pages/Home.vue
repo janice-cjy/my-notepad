@@ -1,17 +1,20 @@
 <template>
 	<div class="Home">
 		<!-- <a href="#" @click="goLogin">login</a> -->
-		<side-bar></side-bar>
+		<side-bar @showModel="modelShow = true"></side-bar>
 		<div class="show-content">
 			<router-view></router-view>
 		</div>
+		<input-data v-if="modelShow" @closeModel="modelShow = false"></input-data>
 	</div>
 </template>
 <script>
 import SideBar from '@/components/SideBar.vue'
+import InputData from '@/components/InputData.vue'
 	export default {
 		components: {
-			SideBar
+			SideBar,
+			InputData
 		},
 		methods: {
 			goLogin(){
@@ -20,6 +23,11 @@ import SideBar from '@/components/SideBar.vue'
 		},
 		created(){
 			this.$router.push({path: '/Home/EventLIst'});
+		},
+		data(){
+			return {
+				modelShow:false
+			}
 		}
 	}
 </script>
@@ -27,6 +35,7 @@ import SideBar from '@/components/SideBar.vue'
 	.Home{
 		height: 100%;
 		display: flex;
+		width: 100%;
 	}
 	.side-bar{
 		flex: none;

@@ -97,6 +97,32 @@ export default new Vuex.Store({
             }else{
                 state.chooseID.push(payload.index);
             }
+        },
+        resetChooseID(state){
+            state.chooseID = [];
+        },
+        deleteData(state){
+            state.unfinishData = [];
+            state.finishedData = [];
+            state.cancelData = [];
+        },
+        inputData(state,payload){
+            let data = payload.data;
+            for(let i=0;i<data.length;i++){
+                switch (data[i].type){
+                    case 'unfinish':
+                        state.unfinishData.push(data[i]);
+                        break;
+                    case 'finished':
+                        state.finishedData.push(data[i]);
+                        break;
+                    case 'cancel':
+                        state.cancelData.push(data[i]);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 })

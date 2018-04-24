@@ -33,18 +33,22 @@ import DownData from '@/components/DownData.vue'
 		},
 		methods:{
 			downData(){
-				let downDate = [];
+				let downData = [];
 				for(let i = 0;i<this.$store.state.chooseID.length;i++){
-					downDate.push(this.itemList[this.$store.state.chooseID[i]]);
+					downData.push(this.itemList[this.$store.state.chooseID[i]]);
 				}
-				let downMessage = JSON.stringify(downDate);
-				console.log(downMessage);
-				this.$http.put('../static/test2.txt',{downMessage}).then(respond => {
-					console.log(respond.body);
-				},respond => {
-					console.log("error");
-				});
+				let aTag = document.createElement('a');
+				let blob = new Blob([JSON.stringify(downData)]);
+				aTag.download = new Date().toString();
+				aTag.href = URL.createObjectURL(blob);
+				aTag.click();
+				URL.revokeObjectURL(blob);
 			}
+		},
+		created(){
+			this.$store.commit({
+				type:'resetChooseID'
+			})
 		}
 	}
 </script>
