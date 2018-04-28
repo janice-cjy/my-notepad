@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[theme]">
     <!-- <img src="./assets/logo.png"> -->
     <router-view></router-view>
   </div>
@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed:{
+    theme(){
+      return this.$store.state.themeColor+'-app'
+    }
+  }
 }
 </script>
 
@@ -34,5 +39,18 @@ p{
 a{
   text-decoration: none;
   font-size: 14px;
+}
+
+/*theme style
+*/
+.purple-app{
+  background-image: url('./assets/purple.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.blue-app{
+  background-image: url('./assets/blue.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 </style>

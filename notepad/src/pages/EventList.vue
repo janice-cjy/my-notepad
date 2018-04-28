@@ -104,6 +104,7 @@ import EventItem from '@/components/EventItem.vue'
 <style lang='scss'>
 	.event-list{
 		height: 100%;
+		overflow: auto;
 		.event-body {
 			margin: 0px 15px;
 		}

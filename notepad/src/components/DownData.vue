@@ -23,12 +23,12 @@
 		text-align: center;
 		font-size: 18px;
 		padding: 10px;
+		background-color: rgba(255,255,255,0.3);
 	}
 
 /*theme style
 */
-	.green-down-data{
-		border:1px solid rgba(15, 189, 44,0.5);
-		background-color: rgba(15, 189, 44,0.3);
+	.purple-down-data{
+		box-shadow:  0px 1px 5px rgba(81, 3, 130,1);
 	}
 </style>

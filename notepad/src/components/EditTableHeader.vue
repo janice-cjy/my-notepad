@@ -22,7 +22,9 @@
 		display: flex;
 		font-size: 14px;
 		padding: 10px;
+		font-weight: bold;
 		border-radius: 5px 5px 0px 0px;
+		background-color: rgba(255,255,255,0.3);
 		.choose-box{
 			width: 50px;
 			flex: none;
@@ -43,9 +45,8 @@
 			flex: none;
 		}
 	}
-
-	.green-edit-table-header{
-		border:1px solid rgba(15, 189, 44,0.5);
-		background-color: rgba(15, 189, 44,0.3);
+/* theme style*/	
+	.purple-edit-table-header{
+		box-shadow:  0px 0px 5px rgba(81, 3, 130,1);
 	}
 </style>

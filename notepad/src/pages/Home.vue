@@ -36,11 +36,13 @@ import InputData from '@/components/InputData.vue'
 		height: 100%;
 		display: flex;
 		width: 100%;
+		overflow: hidden;
 	}
 	.side-bar{
 		flex: none;
 	}
 	.show-content{
 		flex: auto;
+		padding-bottom: 15px;
 	}
 </style>

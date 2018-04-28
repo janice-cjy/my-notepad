@@ -1,10 +1,10 @@
 <template>
 	<div class="input-build" :class='[theme]'>
 		<div class="input-text">
-			<input type="text" placeholder="请输入新建事件" v-model="message">
+			<input type="text" placeholder="请输入新建事件" v-model="message" @keyup.enter="buildEvent">
 		</div>
 		<div class="build-button">
-			<a href="#" @click="buildEvent">新建</a>
+			<a href="#" @click="buildEvent">创  建</a>
 		</div>
 	</div>
 </template>
@@ -46,11 +46,15 @@
 			input {
 				width: 100%;
 				height: 100%;
-				padding: 0px !important;
+				padding:0px 5px;
 				border:1px solid #000;
 				border-radius: 5px;
 				font-size: 16px;
+				background-color: rgba(0,0,0,0);
 			}
+			input::-webkit-input-placeholder{
+            color:rgba(0,0,0,0.5);
+        }
 		}
 
 		.build-button {
@@ -58,6 +62,7 @@
 			width: 100px;
 			height: 100%;
 			padding: 5px;
+
 			a{
 				display: block;
 				height: 100%;
@@ -66,21 +71,27 @@
 				line-height: 250%;
 				border-radius: 5px;
 				font-size: 16px;
+				background-color: rgba(255,255,255,0.5);
 			}
 		}
 	}
 
 /*	theme style*/	
-	.green-input-build{
+	.purple-input-build{
 		.input-text{
 			input{
-				border:1px solid rgba(15, 189, 44,0.5);
+				box-shadow: 0px 0px 2px rgba(81, 3, 130,1);
+				border:1px solid rgba(81, 3, 130,1);
+				border-style: none;
+				background-color: rgba(255,255,255,0.2);
 			}
 		}
 		.build-button{
 			a{
-				border:1px solid rgba(15, 189, 44,0.5);
-				background-color: rgba(15, 189, 44,0.3)
+				border:1px solid rgba(81, 3, 130,1);
+				box-shadow:  0px 0px 2px rgba(81, 3, 130,1);
+				background-color: rgba(81, 3, 130,0.5);
+				color: #fff;
 			}
 		}
 	}

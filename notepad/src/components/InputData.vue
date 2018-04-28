@@ -46,9 +46,9 @@
 		width: 100%;
 		height: 100%;
 		.input-data-content{
+			background-color: rgba(255,255,255,0.3);
 			width: 400px;
 			margin: 200px auto;
-			border:1px solid #000;
 			padding: 15px;
 			border-radius: 5px;
 			.tips{
@@ -59,9 +59,9 @@
 
 /*	theme style
 */
-	.green-input-data{
+	.purple-input-data{
 		.input-data-content{
-			background-color: rgba(15, 189, 44,1);
+			box-shadow:  0px 0px 8px rgba(81, 3, 130,1);
 		}
 	}
 

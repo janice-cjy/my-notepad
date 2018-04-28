@@ -6,16 +6,27 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
     	count:1,
-    	themeColor:'green',
+    	themeColor:'purple',
     	unfinishData:[],
     	finishedData:[],
     	cancelData:[],
         userName: 'Janice',
-        chooseID:[]
+        chooseID:[],
+        userMessage:[],
+        login:false
     },
     mutations:{
     	changeTheme(state,payload){
-    		state.themeColor = payload.color;
+    		switch (payload.color){
+                case '梦幻紫玉':
+                    state.themeColor = 'purple';
+                    break;
+                case '浩瀚星际':
+                    state.themeColor = 'blue';
+                    break;
+                default:
+                    break;
+            }
     	},
     	dealData(state,payload){
     		let arg = {};
@@ -123,6 +134,21 @@ export default new Vuex.Store({
                         break;
                 }
             }
+        },
+        checkUserMessage(state,payload){
+            for(let i =0;i<state.userMessage.length;i++){
+                if (state.userMessage[i].userName == payload.userName&&state.userMessage[i].password == payload.password) {
+                    state.login = true;
+                    break;
+                }
+            }
+        },
+        saveUserMessage(state,payload){
+            let userData = payload.userData;
+            for(let i =0;i<userData.length;i++){
+                state.userMessage[i]=userData[i];
+            }
+            console.log(state.userMessage);
         }
     }
 })

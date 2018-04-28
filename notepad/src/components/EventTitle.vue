@@ -27,6 +27,7 @@
 		text-align: left;
 		padding:5px;
 		border-radius: 5px 5px 0px 0px;
+		background-color: rgba(255,255,255,0.3);
 		a{
 			display: block;
 			width: 100%;
@@ -35,8 +36,7 @@
 	}
 
 /*	theme style*/
-	.green-event-title{
-		border:1px solid rgba(15, 189, 44,0.5);
-		background-color: rgba(15, 189, 44,0.3);
+	.purple-event-title{
+		box-shadow: 0px 0px 5px rgba(81, 3, 130,1);
 	}
 </style>

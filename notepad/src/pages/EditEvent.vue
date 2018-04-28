@@ -39,10 +39,20 @@ import DownData from '@/components/DownData.vue'
 				}
 				let aTag = document.createElement('a');
 				let blob = new Blob([JSON.stringify(downData)]);
-				aTag.download = new Date().toString();
+				let nowTime = new Date();
+
+				let fileName = nowTime.getFullYear()+this.timeRule(nowTime.getMonth() +1)+this.timeRule(nowTime.getDate())+this.timeRule(nowTime.getHours())+this.timeRule(nowTime.getMinutes())+this.timeRule(nowTime.getSeconds());
+				aTag.download = fileName;
 				aTag.href = URL.createObjectURL(blob);
 				aTag.click();
 				URL.revokeObjectURL(blob);
+			},
+			timeRule(num){
+				if (num<10) {
+					return '0'+num;
+				}else{
+					return num;
+				}
 			}
 		},
 		created(){
@@ -55,7 +65,7 @@ import DownData from '@/components/DownData.vue'
 <style lang='scss'>
 	.edit-event{
 		height: 100%;
-		
+		overflow: auto;
 		.edit-body{
 			padding: 15px;
 			.event-title{

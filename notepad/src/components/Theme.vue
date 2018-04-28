@@ -1,5 +1,5 @@
 <template>
-	<div class="theme">
+	<div class="theme" :class="[themeColor]">
 		<ul>
 			<li v-for="item in colorList"><a href="#" @click="getTheme(item)">{{item}}</a>
 			</li>
@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				colorList:['green','red','yellow']
+				colorList:['梦幻紫玉','浩瀚星际','yellow']
 			}
 		},
 		methods:{
@@ -20,15 +20,35 @@
 					color:color
 				});
 			}
+		},
+		computed:{
+			themeColor(){
+				return this.$store.state.themeColor + '-theme';
+			}
 		}
 	}
 </script>
-<style>
-	li{
-		list-style: none;
-	}
+<style lang='scss'>
+
 	ul{
 		margin: 0px;
 		padding: 0px;
+		li{
+			list-style: none;
+			a{
+				display: block;
+				padding: 5px;
+				background-color: rgba(255,255,255,0.3);
+				color: #000;
+			}
+		}
+	}
+
+/*	theme style
+*/
+	.purple-theme{
+		a{
+			box-shadow: 0px 1px 5px rgba(81, 3, 130,0.3);
+		}
 	}
 </style>

@@ -116,7 +116,8 @@
 	.event-item{
 		display: flex;
 		font-size: 18px;
-		padding: 5px;
+		padding: 15px;
+		background-color: rgba(255,255,255,0.2);
 		.content {
 			flex:auto;
 			text-align: left;
@@ -124,7 +125,7 @@
 
 		.timer{
 			flex: none;
-			width: 100px;
+			width: 150px;
 			font-size: 16px;
 			vertical-align: bottom;
 		}
@@ -142,7 +143,7 @@
 
 /*	theme style
 */
-	.green-event-item{
-		border:1px solid rgba(15, 189, 44,0.5);
+	.purple-event-item{
+		box-shadow: 0px 2px 5px rgba(81, 3, 130,0.3);
 	}
 </style>

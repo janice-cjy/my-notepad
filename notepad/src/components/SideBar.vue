@@ -1,12 +1,15 @@
 <template>
 	<div class="side-bar" :class="[themeColor]">
 		<div class="user-message">
-			<h1 class="greeting">早上好</h1>
-			<p class="user-name">{{userName}}</p>
+			<div class="greeting">
+				<p class="say-hi">早上好</p>
+				<p class="user-name">{{userName}}</p>
+			</div>
+			
 			<a href="#" @click="changeUser">切换用户</a>
 		</div>
 		<div class="deal-area">
-			<div class="deal-items" style="padding:5px;">
+			<div class="deal-items">
 				<a href="#" @click="changeRouter('EventList')">
 					数据列表
 				</a>	
@@ -30,8 +33,9 @@
 				<a href="#" @click="themeShow = !themeShow">
 					更换主题
 				</a>
-				<theme-choose v-if="themeShow"></theme-choose>	
+					
 			</div>
+			<theme-choose v-if="themeShow"></theme-choose>
 		</div>
 		<div class="side-bar-footer">
 			created by Janice Chen
@@ -47,13 +51,13 @@ import ThemeChoose from './Theme.vue'
 		data(){
 			return {
 				userName:'janice',
-				/*themeColor:this.$store.state.themeColor + '-theme',*/
 				themeShow: false
 			}
 		},
 		methods:{
 			changeUser(){
 				this.$router.push({path:'/'});
+				this.$store.state.login=false;
 			},
 			changeRouter(routerName){
 				this.$router.push({path: '/Home/' + routerName});
@@ -75,26 +79,45 @@ import ThemeChoose from './Theme.vue'
 		},
 		computed:{
 			themeColor(){
-				return this.$store.state.themeColor + '-theme';
+				return this.$store.state.themeColor + '-side-bar';
 			}
 		}
 	}
 </script>
-<style>
+<style lang='scss'>
 	.side-bar{
 		height: 100%;
 		width: 200px;
 		display: flex;
 		flex-direction: column;
+		background-color: rgba(255,255,255,0.2);
 	}
 	.user-message{
 		flex: none;
-		height: 150px;
 		padding: 5px 0px;
+		.greeting{
+			display: flex;
+			.say-hi{
+				flex: auto;
+				font-size: 18px;
+				text-align: right;
+				padding: 5px;
+			}
+			.user-name{
+				flex: none;
+				width: 100px;
+				text-align: left;
+				display: flex;
+				align-items: flex-end;
+				padding: 5px;
+			}
+		}
+		a{
+			font-size: 12px;
+		}
 	}
 	.deal-area{
 		flex: auto;
-		padding: 5px 0px;
 	}
 	.side-bar-footer{
 		height: 20px;
@@ -103,33 +126,45 @@ import ThemeChoose from './Theme.vue'
 		font-size: 12px;
 		text-align: center;
 	}
-	.greeting{
-		text-align: left;
-		font-family: 'Microsoft Yahei';
-		transform: skew(-25deg,10deg);
-		-ms-transform: skew(-25deg,10deg);	/* IE 9 */
-		-webkit-transform: skew(-25deg,10deg);	/* Safari and Chrome */
-		-o-transform: skew(-25deg,10deg);	/* Opera */
-		-moz-transform: skew(-25deg,10deg);
-		color: rgba(0,0,0,0.2);
-			}
-	.user-name{
-		text-align: center;
-		
-	}
 	.deal-items{
-		padding: 5px;
+		background-color: rgba(255,255,255,0.3);
 	}
-	.deal-items a{
-		display: block;
-		width: 100%;
-	}
+	.deal-items {
+		a{
+			display: block;
+			padding: 10px;
+			font-size: 14px;
+			font-weight: bold;
+			color: #000;
+			
+		}
 
-	/*style-choose*/
-	.green-theme{
-		background-color: rgba(15, 189, 44,0.3);
 	}
-	.green-theme div{
-		border:1px solid rgba(15, 189, 44,0.5);
+	/*style-choose*/
+	/*.green-theme{
+		background-color: rgba(15, 189, 44,1);
+		background-color: rgba(139, 174, 237,0.6);
+	}*/
+	.purple-side-bar{
+		border:1px solid rgba(81, 3, 130,0.5);
+		box-shadow: 2px 2px 2px rgba(81, 3, 130,0.3);
+		.user-message{
+			box-shadow: 0px 1px 0px rgba(81, 3, 130,0.3);
+		}
+		.deal-items{
+			box-shadow: 0px 1px 0px rgba(81, 3, 130,0.3);
+			a{
+				&:hover{
+					background-color: rgba(81, 3, 130,0.5);
+				}
+				&:active{
+					background-color: rgba(255,255,255,0.5);
+				}
+				/*&:visited{
+					background-color: rgba(81, 3, 130,0.5);
+				}*/
+			}
+			
+		}
 	}
 </style>

@@ -31,8 +31,9 @@
 </script>
 <style lang='scss'>
 	.edit-table-item{
-		padding: 10px;
+		padding: 15px;
 		display: flex;
+		background-color: rgba(255,255,255,0.2);
 		.edit-table-item-choose{
 			width: 50px;
 			flex: none;
@@ -44,7 +45,7 @@
 		}
 
 		.edit-table-item-time{
-			width: 100px;
+			width: 150px;
 			flex: none;
 		}
 		
@@ -55,10 +56,10 @@
 	}
 /*	theme style
 */
-	.green-edit-table-item{
-		border:1px solid rgba(15, 189, 44,0.5);	
+	.purple-edit-table-item{
+		box-shadow: 0px 2px 5px rgba(81, 3, 130,0.3);
 		&:hover{
-			background-color:rgba(15,189,44,0.3);
+			background-color:rgba(81, 3, 130,0.1);
 		}
 	}
 </style>
