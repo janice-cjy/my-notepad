@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				colorList:['梦幻紫玉','浩瀚星际','yellow']
+				colorList:['梦幻紫玉','深邃夜空','葱郁鲜绿']
 			}
 		},
 		methods:{
@@ -49,6 +49,12 @@
 	.purple-theme{
 		a{
 			box-shadow: 0px 1px 5px rgba(81, 3, 130,0.3);
+		}
+	}
+
+	.green-theme{
+		a{
+			box-shadow: 0px 1px 5px rgba(106, 168, 79,0.5);
 		}
 	}
 </style>

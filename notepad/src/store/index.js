@@ -21,8 +21,11 @@ export default new Vuex.Store({
                 case '梦幻紫玉':
                     state.themeColor = 'purple';
                     break;
-                case '浩瀚星际':
-                    state.themeColor = 'blue';
+                case '深邃夜空':
+                    state.themeColor = 'black';
+                    break;
+                case '葱郁鲜绿':
+                    state.themeColor = 'green';
                     break;
                 default:
                     break;

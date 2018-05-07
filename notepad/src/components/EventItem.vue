@@ -146,4 +146,8 @@
 	.purple-event-item{
 		box-shadow: 0px 2px 5px rgba(81, 3, 130,0.3);
 	}
+
+	.green-event-item{
+		box-shadow: 0px 1px 5px rgba(106, 168, 79,1);
+	}
 </style>

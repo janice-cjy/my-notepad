@@ -11,7 +11,12 @@
 	export default {
 		data(){
 			return {
-				theme: this.$store.state.themeColor + '-edit-table-header'
+				
+			}
+		},
+		computed:{
+			theme(){
+				return this.$store.state.themeColor + '-edit-table-header';
 			}
 		}
 
@@ -48,5 +53,11 @@
 /* theme style*/	
 	.purple-edit-table-header{
 		box-shadow:  0px 0px 5px rgba(81, 3, 130,1);
+		background-color: rgba(81, 3, 130,0.3);
+	}
+
+	.green-edit-table-header{
+		box-shadow:  0px 0px 5px rgba(106, 168, 79,1);
+		background-color: rgba(106, 168, 79,0.8);
 	}
 </style>

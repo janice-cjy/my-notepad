@@ -44,9 +44,9 @@ a{
 /*theme style
 */
 .purple-app{
-  background-image: url('./assets/purple.jpg');
+  /*background-image: url('./assets/purple.jpg');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%;*/
 }
 .blue-app{
   background-image: url('./assets/blue.jpg');

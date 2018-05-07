@@ -1,5 +1,5 @@
 <template>
-	<div class="edit-event" style="height:100%;">
+	<div class="edit-event" style="height:100%;" :class='[theme]'>
 		<div class="edit-body">
 			<edit-table-header></edit-table-header>
 			<edit-table-item v-for="(item,index) in itemList" :content='item.content' :dataType='item.type' :time="item.timer" :key="index" :itemID="index"></edit-table-item>
@@ -29,6 +29,9 @@ import DownData from '@/components/DownData.vue'
 			itemList:function(){
 				let arr = [];
 				return arr.concat(this.$store.state.unfinishData,this.$store.state.finishedData,this.$store.state.cancelData);
+			},
+			theme(){
+				return this.$store.state.themeColor + '-edit-event';
 			}
 		},
 		methods:{
@@ -73,4 +76,11 @@ import DownData from '@/components/DownData.vue'
 			}
 		}
 	}
+
+/*	theme style
+*/
+	::-webkit-scrollbar{
+		 width:8px;
+		 height:8px;
+		}
 </style>

@@ -110,4 +110,25 @@ import EventItem from '@/components/EventItem.vue'
 		}
 	}
 	
+	::-webkit-scrollbar-track-piece{
+	 -webkit-border-radius:0;
+	}
+	::-webkit-scrollbar{
+	 width:8px;
+	 height:8px;
+	}
+	::-webkit-scrollbar-thumb{
+	 height:50px;
+	 background-color:rgba(81, 3, 130,0.2);
+	 -webkit-border-radius:4px;
+	 outline-offset:-2px;
+	 
+	}
+	::-webkit-scrollbar-thumb:hover{
+	 height:50px;
+	 background-color:rgba(81, 3, 130,0.5);
+	 -webkit-border-radius:4px;
+	}
+
+	
 </style>

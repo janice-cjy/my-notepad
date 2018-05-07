@@ -46,7 +46,7 @@
 		width: 100%;
 		height: 100%;
 		.input-data-content{
-			background-color: rgba(255,255,255,0.3);
+			background-color: rgba(255,255,255,0.8);
 			width: 400px;
 			margin: 200px auto;
 			padding: 15px;

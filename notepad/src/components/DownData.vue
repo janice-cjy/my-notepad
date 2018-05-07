@@ -7,12 +7,17 @@
 	export default {
 		data(){
 			return {
-				theme: this.$store.state.themeColor + '-down-data'
+				
 			}
 		},
 		methods:{
 			downing(){
 				this.$emit('downing');
+			}
+		},
+		computed:{
+			theme(){
+				return this.$store.state.themeColor + '-down-data';
 			}
 		}
 	}
@@ -29,6 +34,10 @@
 /*theme style
 */
 	.purple-down-data{
-		box-shadow:  0px 1px 5px rgba(81, 3, 130,1);
+		box-shadow:  0px 0px 5px rgba(81, 3, 130,1);
+	}
+
+	.green-down-data{
+		box-shadow:  0px 0px 5px rgba(106, 168, 79,1);
 	}
 </style>
