@@ -1,6 +1,6 @@
 <template>
 	<div class="down-data" :class='[theme]'>
-		<button><a href="#" @click="downing">下载</a></button>
+		<button><a href="#" @click="download">下载</a></button>
 	</div>
 </template>
 <script>
@@ -11,7 +11,7 @@
 			}
 		},
 		methods:{
-			downing(){
+			download(){
 				this.$emit('downing');
 			}
 		},

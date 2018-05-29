@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				colorList:['梦幻紫玉','深邃夜空','葱郁鲜绿']
+				colorList:['梦幻紫玉','葱郁鲜绿']
 			}
 		},
 		methods:{

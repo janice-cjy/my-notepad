@@ -3,7 +3,7 @@
 		<div class="edit-body">
 			<edit-table-header></edit-table-header>
 			<edit-table-item v-for="(item,index) in itemList" :content='item.content' :dataType='item.type' :time="item.timer" :key="index" :itemID="index"></edit-table-item>
-			<down-data @downing="downData"></down-data>
+			<download-data @downing="downData"></download-data>
 		</div>
 		
 	</div>
@@ -12,13 +12,13 @@
 import EventTitle from '@/components/EventTitle.vue'
 import EditTableHeader from '@/components/EditTableHeader.vue'
 import EditTableItem from '@/components/EditTableItem.vue'
-import DownData from '@/components/DownData.vue'
+import DownloadData from '@/components/DownloadData.vue'
 	export default {
 		components:{
 			EventTitle,
 			EditTableHeader,
 			EditTableItem,
-			DownData
+			DownloadData
 		},
 		data(){
 			return {

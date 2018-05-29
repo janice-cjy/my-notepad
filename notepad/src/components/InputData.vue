@@ -28,13 +28,26 @@
 					this.$store.commit({
 						type:'inputData',
 						data:arr
-					})
+					});
+					this.dataToLocalStorage("finishedData");
+					this.dataToLocalStorage("unfinishData");
+					this.dataToLocalStorage("cancelData");
 					alert("导入数据成功");
+					this.$emit("closeModel");
 				}
 				
 			},
 			closeModel(){
 				this.$emit("closeModel");
+			},
+			dataToLocalStorage(stringName){
+				var arr;
+				arr = [];
+				for(let j = 0;j<this.$store.state[stringName].length; j++){
+					arr.push(JSON.stringify(this.$store.state[stringName][j]));
+
+				}
+				localStorage[stringName] = JSON.stringify(arr);
 			}
 		}
 	}
